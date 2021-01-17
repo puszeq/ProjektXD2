@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://thymeleaf.org">
+    <head th:include="layout :: head"></head>
+    <body>
+        <div th:include="layout :: navigationPanel"></div>
+        
+        <h1>Edytuj swoje dane</h1>
+        <form th:action="@{/confirmEdit}" method="POST" th:object="${editedUser}">
+            <input type="hidden" th:field="*{userid}"/>
+            <label>Imię: </label>
+            <input type="text" th:field="*{name}" placeholder="Imię"/>
+            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br/>
+            <label>Nazwisko: </label>
+            <input type="text" th:field="*{surname}" placeholder="Nazwisko"/>
+            <span class="error" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span><br/>
+            <label>Login: </label>
+            <input type="text" th:field="*{login}" placeholder="Login" readonly/>
+            <span class="error" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span><br/>
+            <label>Password: </label>
+            <input type="password" th:field="*{password}" placeholder="Hasło"/>
+            <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span> <br />
+            <button type="submit">Potwierdź</button>
+        </form>
+        
+        <div th:include="layout :: footer"></div>
+    </body>
+</html>
