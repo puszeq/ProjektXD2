@@ -34,6 +34,11 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/test")
+    public String testPage() {
+        return "test";
+    }
+
     @GetMapping("/register")
     public String registerPage(Model m) {
         m.addAttribute("user", new User());

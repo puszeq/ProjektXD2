@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://thymeleaf.org">
-    <head th:include="layout :: head"></head>
-    <body>
-        <div th:include="layout :: navigationPanel"></div>
-        <h1>Rejestracja</h1>
-        <form th:action="@{/register}" method="POST" th:object="${user}">
-            <input type="text" th:field="*{name}" placeholder="Imię"/>
+<head th:include="layout :: head"></head>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<br/>
+
+<h1 class="text-center">Rejestracja</h1>
+<br/>
+
+<form th:action="@{/register}" method="POST" th:object="${user}">
+    <div class="w-50 mx-auto">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="text" class="form-control" placeholder="Imię" aria-label="Username"
+                   aria-describedby="basic-addon1" th:field="*{name}">
             <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <br/>
-            
-            <input type="text" th:field="*{surname}" placeholder="Nazwisko"/>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="text" class="form-control" placeholder="Nazwisko" aria-label="Username"
+                   aria-describedby="basic-addon1" th:field="*{surname}">
             <span class="error" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span> <br/>
-            
-            <input type="text" th:field="*{login}" placeholder="Login"/>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="text" class="form-control" placeholder="Login" aria-label="Username"
+                   aria-describedby="basic-addon1" th:field="*{login}">
             <span class="error" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span> <br/>
-            
-            <input type="password" th:field="*{password}" placeholder="Hasło"/>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="password" class="form-control" placeholder="Hasło" aria-label="Username"
+                   aria-describedby="basic-addon1" th:field="*{password}">
             <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span> <br/>
-            <button type="submit">Zarejestruj się</button>
-        </form>
-        <div th:include="layout :: footer"></div>
-    </body>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Zarejestruj się</button>
+        </div>
+    </div>
+</form>
+<div th:include="layout :: footer"></div>
+</body>
 </html>
