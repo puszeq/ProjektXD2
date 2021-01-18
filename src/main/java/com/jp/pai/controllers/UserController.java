@@ -1,17 +1,10 @@
 package com.jp.pai.controllers;
 
-import com.jp.pai.dao.userDao;
+import com.jp.pai.dao.UserDao;
 import com.jp.pai.entities.User;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collection;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -27,7 +19,7 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private userDao dao;
+    private UserDao dao;
 
     @GetMapping("/login")
     public String loginPage() {

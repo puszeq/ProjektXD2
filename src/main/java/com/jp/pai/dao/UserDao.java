@@ -4,7 +4,8 @@ import com.jp.pai.entities.User;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
-public interface userDao extends CrudRepository<User, Integer> {
+public interface UserDao extends CrudRepository<User, Integer> {
+    public User findByUserid(Integer userid);
     public User findByLogin(String login);
 }
 

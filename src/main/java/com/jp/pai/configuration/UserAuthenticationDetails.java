@@ -1,6 +1,6 @@
 package com.jp.pai.configuration;
 
-import com.jp.pai.dao.userDao;
+import com.jp.pai.dao.UserDao;
 import com.jp.pai.entities.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserAuthenticationDetails implements UserDetailsService {
     @Autowired
-    private userDao dao;
+    private UserDao dao;
     
     @Override
     public UserDetails loadUserByUsername(String login)
